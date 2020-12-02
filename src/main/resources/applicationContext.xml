@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+			        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+  <!--  <bean class="org.best.service.UserServiceImp" id="serviceImp"></bean>-->
+        <!--通过set方法注入值-->
+    <bean class="org.best.service.StudentServiceImpl" id="studentService">
+      <property name="name" value="bestLee"></property>
+      <property name="age" value="18"></property>
+      <property name="height" value="185.0"></property>
+     </bean>
+  <!--  <bean factory-bean="studentService" factory-method="say" id="studentsay">
+    </bean>-->
+
+
+  <!-- <bean class="org.best.service.UserServiceImp" id="serviceImp" >
+    <constructor-arg name="name" value="ls"></constructor-arg>
+    <constructor-arg name="age" value="17"></constructor-arg>
+    <constructor-arg name="height" value="180"></constructor-arg>
+</bean>-->
+
+    <bean class="org.best.service.UserServiceImp" id="serviceImp">
+        <property name="userDao" ref="userDao"></property>
+    </bean>
+
+    <bean class="org.best.dao.UserDaoImpl" id="userDao">
+    </bean>
+
+      <!--数组注入-->
+    <bean class="org.best.service.DiImpl" id="di">
+        <property name="array">
+            <array>
+                <value>bestlee</value>
+                <value>yyp</value>
+                <value>最好的我们</value>
+            </array>
+        </property>
+    </bean>
+   <!--list注入-->
+    <bean class="org.best.service.DiImpl" id="di2">
+        <property name="list">
+            <list>
+                <value>11</value>
+                <value>22</value>
+            </list>
+        </property>
+    </bean>
+    <!--set注入-->
+    <bean class="org.best.service.DiImpl" id="di3">
+        <property name="set">
+            <set>
+                <value>3333</value>
+                <value>4444</value>
+            </set>
+        </property>
+    </bean>
+
+    <!--properties注入-->
+    <bean class="org.best.service.DiImpl" id="di4">
+        <property name="map">
+            <props>
+                <prop key="1">1号</prop>
+                <prop key="2">2号</prop>
+            </props>
+        </property>
+    </bean>
+    <!--map注入-->
+    <bean class="org.best.service.DiImpl" id="di5">
+        <property name="map">
+            <map>
+                <entry key="1" value="1号"></entry>
+                <entry key="2" value="2号"></entry>
+            </map>
+        </property>
+    </bean>
+    <!--引入配置文件-->
+   <!-- <import resource="配置文件路径"></import>-->
+
+
+
+</beans>
